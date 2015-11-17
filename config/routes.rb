@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :ceps
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "users/registrations"}
 
   get "home/index"
 
