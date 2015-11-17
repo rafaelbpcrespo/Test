@@ -7,7 +7,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  R$ <%= @product.price %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Supermarket:</strong>
-  <%= @product.supermarket %>
+  <%= @product.supermarket.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

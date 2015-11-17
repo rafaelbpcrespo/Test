@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :supermarket_id %><br>
-    <%= f.text_field :supermarket_id %>
+    <%= f.collection_select :supermarket_id, Supermarket.all, :id, :name, {prompt: "Selecione"} %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -74,6 +74,10 @@ class SupermarketsController < ApplicationController
     end
   end
 
+  def products
+    @supermarket = Supermarket.find(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_supermarket

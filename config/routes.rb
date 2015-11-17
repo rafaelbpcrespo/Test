@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :products
-  resources :supermarkets
+  resources :supermarkets do
+    member do
+      get :products
+    end
+  end
   resources :ceps
   devise_for :users
 
