@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'items/create'
+
+  get 'items/update'
+
+  get 'items/destroy'
+
+  get 'carts/show'
+
   resources :products
   resources :supermarkets do
     member do
