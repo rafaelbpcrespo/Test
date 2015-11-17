@@ -9,7 +9,7 @@ RSpec.describe Supermarket, type: :model do
   end
 
   describe 'assotiations' do
-    it { should belongs_to(:cep) }
+    it { should belong_to(:cep) }
   end
 
 end
