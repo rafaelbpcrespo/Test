@@ -14,7 +14,7 @@
   <tbody>
     <% @supermarkets.each do |supermarket| %>
       <tr>
-        <td><%= supermarket.name %></td>
+        <td><%= link_to supermarket.name, supermarket %></td>
         <td><%= supermarket.cep.code %></td>
         <td><%= link_to 'Show', supermarket %></td>
         <td><%= link_to 'Edit', edit_supermarket_path(supermarket) %></td>

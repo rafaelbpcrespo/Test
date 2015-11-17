@@ -4,7 +4,20 @@ class SupermarketsController < ApplicationController
   # GET /supermarkets
   # GET /supermarkets.json
   def index
-    @supermarkets = Supermarket.all
+    if params[:search].blank?
+      respond_to do |format|
+        format.html { redirect_to home_index_path, alert: 'Favor preencher o CEP.' }
+      end
+    else
+      @cep = Cep.find_by_code(params[:search])
+      if @cep.nil? || @cep.supermarkets.empty?
+        respond_to do |format|
+          format.html { redirect_to home_index_path, notice: 'Nenhum supermercado cadastrado para esta área.' }
+        end
+      else
+        @supermarkets = @cep.supermarkets
+      end
+    end
   end
 
   # GET /supermarkets/1

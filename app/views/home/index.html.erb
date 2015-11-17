@@ -1,0 +1,4 @@
+<%= form_tag(supermarkets_path, :method => "get") do %>
+        <%= text_field_tag :search, params[:search], :class => "form-control", placeholder: "Digite seu CEP" %>
+        <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-success' %>
+<% end %>
