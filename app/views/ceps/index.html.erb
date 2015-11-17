@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ceps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ceps.each do |cep| %>
+      <tr>
+        <td><%= cep.code %></td>
+        <td><%= link_to 'Show', cep %></td>
+        <td><%= link_to 'Edit', edit_cep_path(cep) %></td>
+        <td><%= link_to 'Destroy', cep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cep', new_cep_path %>
