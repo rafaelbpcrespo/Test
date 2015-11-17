@@ -15,7 +15,7 @@
     <% @supermarkets.each do |supermarket| %>
       <tr>
         <td><%= supermarket.name %></td>
-        <td><%= supermarket.cep %></td>
+        <td><%= supermarket.cep.code %></td>
         <td><%= link_to 'Show', supermarket %></td>
         <td><%= link_to 'Edit', edit_supermarket_path(supermarket) %></td>
         <td><%= link_to 'Destroy', supermarket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
