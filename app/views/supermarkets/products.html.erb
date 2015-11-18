@@ -5,7 +5,8 @@
 
 <%= form_tag(products_path, :method => "get") do %>
   <div class="form-group">
-    <%= text_field_tag :search, params[:search], :class => "col-sm-3", placeholder: "Digite seu CEP" %><br><br>
+    <%= text_field_tag :search, params[:search], :class => "col-sm-3", placeholder: "Digite o nome do produto" %><br><br>
+    <%= hidden_field_tag :supermarket_id, @supermarket.id %>
     <%= submit_tag "Buscar", :name => nil, :class => 'btn-sm btn-success' %>
   </div>
 <% end %>
@@ -23,6 +24,8 @@
     <% @supermarket.products.each do |product| %>
       <%= render 'products/product_row', product: product, item: @item %>
     <% end %>
+  <%= link_to "Preview Cart", cart_path, class: "btn btn-link" %>
   </div>
+
 </div>
 
