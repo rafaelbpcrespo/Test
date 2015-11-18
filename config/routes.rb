@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'items/create'
 
-  get 'items/update'
-
-  get 'items/destroy'
-
-  get 'carts/show'
+  resource :cart, only: [:show] do
+    get 'checkout', on: :member
+  end
+  resources :items, only: [:create, :update, :destroy]
 
   resources :products
   resources :supermarkets do
@@ -17,6 +15,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations"}
 
   get "home/index"
+
+  root to: "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
