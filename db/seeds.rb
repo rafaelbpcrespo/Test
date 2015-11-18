@@ -24,8 +24,8 @@
 
     puts 'Creating Common Products'
     Supermarket.all.each do |supermarket|
-      [["Arroz", 3.5], ["Feijão", 3], ["Refrigerante 2l", 4.69], ["Alcatra Kg", 24.90], ["Lasanha 650g", 11], ["Macarrão Penne 500g", 2.70], ["Azeite Extra Virgem 500ml", 12.50], ["Desodorante Spray", 10.90], ["Shampoo", 8.59], ["Sabão", 7]].each do |product|
-        supermarket.products.create(name: product[0], price: product[1])
+      [["arroz", 3.5], ["Feijão", 3], ["refrigerante 2l", 4.69], ["Alcatra Kg", 24.90], ["lasanha 650g", 11], ["macarrão Penne 500g", 2.70], ["Azeite Extra Virgem 500ml", 12.50], ["Desodorante Spray", 10.90], ["Shampoo", 8.59], ["Sabão", 7]].each do |product|
+        supermarket.products.create!(name: product[0], price: product[1])
       end
     end
 
