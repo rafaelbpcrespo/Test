@@ -63,4 +63,5 @@ group :development, :test do
   gem 'byebug',                '5.0.0'
   gem 'web-console',           '2.2.1'
   gem 'spring',                '1.4.1'
+  gem 'debugger'
 end
