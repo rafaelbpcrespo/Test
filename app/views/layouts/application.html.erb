@@ -3,16 +3,24 @@
 <head>
   <title>Test</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap.min.js', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Sair", destroy_user_session_path, method: :get %>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 
+  <div class="container">
+  <% if user_signed_in? %>
+    <%= link_to "Sair", destroy_user_session_path, method: :get %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, method: :get %>
+  <% end %>
 
-<%= yield %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
