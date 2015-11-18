@@ -8,13 +8,12 @@ class Product < ActiveRecord::Base
 
   def titleize_name
     self.name = self.name.titleize
-    self.save!
   end
 
   def self.search(search)
     if search
       search = search.titleize
-      find(:all, :conditions => ['nome LIKE ?', "%#{search}%"])
+      Product.where('name LIKE ?', "%#{search}%")
     else
       find(:all)
     end
