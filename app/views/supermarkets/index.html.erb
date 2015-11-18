@@ -1,13 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Supermarkets</h1>
+<h1>Supermarkets from CEP: <%= @cep.code %></h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Cep</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -15,10 +13,6 @@
     <% @supermarkets.each do |supermarket| %>
       <tr>
         <td><%= link_to supermarket.name, products_supermarket_path(supermarket) %></td>
-        <td><%= supermarket.cep.code %></td>
-        <td><%= link_to 'Show', supermarket %></td>
-        <td><%= link_to 'Edit', edit_supermarket_path(supermarket) %></td>
-        <td><%= link_to 'Destroy', supermarket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
