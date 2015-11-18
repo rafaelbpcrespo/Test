@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all.search(params[:search])
+    @products = Product.where(supermarket_id: params[:supermarket_id]).search(params[:search])
     @item = current_order.items.new
   end
 
