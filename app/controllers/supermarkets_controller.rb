@@ -1,5 +1,6 @@
 class SupermarketsController < ApplicationController
   before_action :set_supermarket, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /supermarkets
   # GET /supermarkets.json
@@ -76,6 +77,7 @@ class SupermarketsController < ApplicationController
 
   def products
     @supermarket = Supermarket.find(params[:id])
+    @item = current_order.items.new
   end
 
   private
