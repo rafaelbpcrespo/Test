@@ -42,7 +42,7 @@ class SupermarketsController < ApplicationController
 
     respond_to do |format|
       if @supermarket.save
-        format.html { redirect_to @supermarket, notice: 'Supermarket was successfully created.' }
+        format.html { redirect_to @supermarket, notice: 'Supermarket cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @supermarket }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class SupermarketsController < ApplicationController
   def update
     respond_to do |format|
       if @supermarket.update(supermarket_params)
-        format.html { redirect_to @supermarket, notice: 'Supermarket was successfully updated.' }
+        format.html { redirect_to @supermarket, notice: 'Supermarket cadastrado com sucesso.' }
         format.json { render :show, status: :ok, location: @supermarket }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class SupermarketsController < ApplicationController
   def destroy
     @supermarket.destroy
     respond_to do |format|
-      format.html { redirect_to supermarkets_url, notice: 'Supermarket was successfully destroyed.' }
+      format.html { redirect_to supermarkets_url, notice: 'Supermarket removido com sucesso.' }
       format.json { head :no_content }
     end
   end
