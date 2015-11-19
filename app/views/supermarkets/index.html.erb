@@ -1,23 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Supermarkets from CEP: <%= @cep.code %></h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1 class="text-center">Supermarkets from CEP: <%= @cep.code %></h1>
+  <div class="col-sm-12">
     <% @supermarkets.each do |supermarket| %>
-      <tr>
-        <td><%= link_to supermarket.name, products_supermarket_path(supermarket) %></td>
-      </tr>
+      <%= link_to supermarket.name, products_supermarket_path(supermarket), html_options = { :class => 'btn btn-primary btn-lg btn-block' } %>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+  <%= link_to "Back", :back, class: "btn btn-default" %>
 
-<%= link_to 'New Supermarket', new_supermarket_path %>
+<%#= link_to 'New Supermarket', new_supermarket_path %>

@@ -1,6 +1,6 @@
 
 <% if !(@order.items.empty? || @order.supermarket == @product.supermarket) %>
-  alert("Este produto pertence a outro estabelecimento.")
+  alert("This product belongs to another supermarket. Please choose products from <%= @order.supermarket.name %>")
 <% elsif @order.errors.any? || @item.errors.any? %>
   alert("not valid.")
 <% else %>

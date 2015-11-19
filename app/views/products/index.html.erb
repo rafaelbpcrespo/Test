@@ -1,13 +1,18 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center">Products from <%= @supermarket.name %> </h1><br>
 
-<h3 class="text-center">Products for Sale</h3>
+<div style="margin-left:40%">
+  <%= form_tag(products_path, :method => "get", :class => "form-inline") do %>
+    <div class="form-group">
+      <%= text_field_tag :search, params[:search], :class => "form-control", placeholder: "Product name" %>
+      <%= hidden_field_tag :supermarket_id, @supermarket.id %>
+      <%= submit_tag "Buscar", :name => nil, :class => 'btn-sm btn-success' %>
+    </div>
+  <% end %>
+</div>
 
 
 <div class="row">
-  <div class="col-xs-6">
-    <h1><%= link_to "My Store", root_path %></h1>
-  </div>
-  <div class="col-xs-6 text-right">
+  <div class="col-xs-12 text-right">
     <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
   </div>
     <hr>
@@ -15,5 +20,8 @@
     <% @products.each do |product| %>
       <%= render "product_row", product: product, item: @item %>
     <% end %>
+  <%= link_to "Back", products_supermarket_path(current_order.supermarket), class: "btn btn-default" %>
+  <%= link_to "Preview Cart", cart_path, class: "btn btn-default" %>
+
   </div>
 </div>
