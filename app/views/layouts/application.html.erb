@@ -9,17 +9,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+       <p class="notice text-center"><%= notice %></p>
+       <p class="alert text-center"><%= alert %></p>
 
   <div class="container">
-  <% if user_signed_in? %>
-    <%= link_to "Sair", destroy_user_session_path, method: :get %>
-  <% else %>
-    <%= link_to "Login", new_user_session_path, method: :get %>
-  <% end %>
+    <div class="text-right">
+      <% if user_signed_in? %>
+        <%= link_to "Sair", destroy_user_session_path, method: :get %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, method: :get %>
+      <% end %>
+    </div>
 
     <%= yield %>
+
   </div>
 
 </body>
