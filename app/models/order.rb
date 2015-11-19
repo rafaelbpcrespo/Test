@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   has_many :items
   has_many :products, through: :items
   belongs_to :user
+  belongs_to :supermarket
 
   # before_save :update_subtotal
   def subtotal
