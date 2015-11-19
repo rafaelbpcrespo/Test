@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :supermarket do
-    name "MyString"
+    sequence(:name) { |n| "Supermarket #{n}" }
     cep
   end
 
