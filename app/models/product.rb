@@ -14,8 +14,6 @@ class Product < ActiveRecord::Base
     if search
       search = search.titleize
       Product.where('name LIKE ?', "%#{search}%")
-    else
-      find(:all)
     end
   end
 
