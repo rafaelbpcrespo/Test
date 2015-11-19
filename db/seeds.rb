@@ -10,7 +10,8 @@
     User.create!(
       email: 'user@carrinhoemcasa.com',
       password: 'qwertyui',
-      password_confirmation: 'qwertyui'
+      password_confirmation: 'qwertyui',
+      uuid: SecureRandom.uuid
       )
 
 
