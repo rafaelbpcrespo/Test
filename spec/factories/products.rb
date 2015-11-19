@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :product do
-    name "MyString"
-price 1.5
-description "MyString"
-supermarket nil
+    name "Product"
+    price 1.5
+    description "Product Description"
+    supermarket
   end
 
 end
