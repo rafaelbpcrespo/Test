@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="text-center">Supermarkets from CEP: <%= @cep.code %></h1>
-  <div class="col-sm-12">
-    <% @supermarkets.each do |supermarket| %>
-      <%= link_to supermarket.name, products_supermarket_path(supermarket), html_options = { :class => 'btn btn-primary btn-lg btn-block' } %>
-    <% end %>
-  </div>
-
-  <%= link_to "Back", :back, class: "btn btn-default" %>
+  <h1 class="text-center">Supermarkets from CEP: <%= @cep.code %></h1>
+  <% @supermarkets.each do |supermarket| %>
+    <div class="well">
+      <div class="row">
+        <div class="col-xs-4 text-center"></div>
+        <div class="col-xs-4 text-center">
+          <%= link_to supermarket.name, products_supermarket_path(supermarket), html_options = { :class => 'btn btn-primary btn-lg btn-block' } %>
+        </div>
+        <div class="col-xs-4 text-center"></div>
+      </div>
+    </div>
+  <% end %>
+      <br\><br/>
+    <div class="text-center"><%= link_to "Back", :back, class: "btn btn-default" %></div>
 
 <%#= link_to 'New Supermarket', new_supermarket_path %>

@@ -20,8 +20,10 @@
     <% @products.each do |product| %>
       <%= render "product_row", product: product, item: @item %>
     <% end %>
-  <%= link_to "Back", products_supermarket_path(current_order.supermarket), class: "btn btn-default" %>
-  <%= link_to "Preview Cart", cart_path, class: "btn btn-default" %>
-
   </div>
+  <div class="col-sm-6 col-xs-offset-3 text-center" style="margin-bottom:20px;">
+    <%= link_to "Back", :back, class: "btn btn-default" %>
+    <%= link_to "Preview Cart", cart_path, class: "btn btn-default" %>
+    </div>
+
 </div>
