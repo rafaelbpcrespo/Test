@@ -1,6 +1,6 @@
 class SupermarketsController < ApplicationController
   before_action :set_supermarket, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   # GET /supermarkets
   # GET /supermarkets.json
