@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
       current_order = @order
     else
       respond_to do |format|
-        format.js #{ redirect_to products_supermarket_path(@order.supermarket), notice: 'Este produto pertence a outro estabelecimento.' }
+        format.js
       end
     end
   end
