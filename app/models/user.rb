@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :orders
+  validates :uuid, presence: true, uniqueness: true
 
   def order_in_progress
     self.orders.where(uuid: self.uuid).first
