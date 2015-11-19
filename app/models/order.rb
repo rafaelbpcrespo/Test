@@ -4,7 +4,8 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :supermarket
 
-  # before_save :update_subtotal
+  validates :user_id, :supermarket_id, presence: true
+
   def subtotal
     items.collect { |item| item.valid? ? (item.quantity * item.unit_price) : 0 }.sum
   end
@@ -12,12 +13,6 @@ class Order < ActiveRecord::Base
   def checkout
     self.uuid = nil
     self.save
-  end
-
-  private
-
-  def update_subtotal
-    self[:subtotal] = subtotal
   end
 
 end
