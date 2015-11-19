@@ -2,15 +2,23 @@ class ItemsController < ApplicationController
 
   def create
     @order = current_order
-    if @order.products.include? Product.find(params[:item][:product_id])
-      @item = @order.items.find_by_product_id(params[:item][:product_id])
-      @item.quantity += params[:item][:quantity].to_i
-      @item.save
+    @product = Product.find(params[:item][:product_id])
+    if ( @order.items.empty? || @order.supermarket == @product.supermarket )
+      if @order.products.include? Product.find(@product.id)
+        @item = @order.items.find_by_product_id(@product.id)
+        @item.quantity += params[:item][:quantity].to_i
+        @item.save
+      else
+        @item = @order.items.new(item_params)
+        @order.supermarket = Product.find(params[:item][:product_id]).supermarket
+      end
+      @order.save
+      current_order = @order
     else
-      @item = @order.items.new(item_params)
+      respond_to do |format|
+        format.js #{ redirect_to products_supermarket_path(@order.supermarket), notice: 'Este produto pertence a outro estabelecimento.' }
+      end
     end
-    @order.save
-    current_order = @order
   end
 
   def update

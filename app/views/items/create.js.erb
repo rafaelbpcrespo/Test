@@ -1,4 +1,7 @@
-<% if @order.errors.any? || @item.errors.any? %>
+<% debugger %>
+<% if !(@order.items.empty? || @order.supermarket == @product.supermarket) %>
+  alert("Este produto pertence a outro estabelecimento.")
+<% elsif @order.errors.any? || @item.errors.any? %>
   alert("not valid.")
 <% else %>
   $(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
