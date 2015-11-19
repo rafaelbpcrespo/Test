@@ -7,13 +7,13 @@ class SupermarketsController < ApplicationController
   def index
     if params[:search].blank?
       respond_to do |format|
-        format.html { redirect_to home_index_path, alert: 'Favor preencher o CEP.' }
+        format.html { redirect_to home_index_path, alert: 'Please fill with CEP.' }
       end
     else
       @cep = Cep.find_by_code(params[:search])
       if @cep.nil? || @cep.supermarkets.empty?
         respond_to do |format|
-          format.html { redirect_to home_index_path, notice: 'Nenhum supermercado cadastrado para esta área.' }
+          format.html { redirect_to home_index_path, alert: 'There is no supermarkets in this area.' }
         end
       else
         @supermarkets = @cep.supermarkets
