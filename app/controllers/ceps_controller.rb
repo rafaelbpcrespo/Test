@@ -28,7 +28,7 @@ class CepsController < ApplicationController
 
     respond_to do |format|
       if @cep.save
-        format.html { redirect_to @cep, notice: 'Cep was successfully created.' }
+        format.html { redirect_to @cep, notice: 'Cep cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @cep }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CepsController < ApplicationController
   def update
     respond_to do |format|
       if @cep.update(cep_params)
-        format.html { redirect_to @cep, notice: 'Cep was successfully updated.' }
+        format.html { redirect_to @cep, notice: 'Cep atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @cep }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CepsController < ApplicationController
   def destroy
     @cep.destroy
     respond_to do |format|
-      format.html { redirect_to ceps_url, notice: 'Cep was successfully destroyed.' }
+      format.html { redirect_to ceps_url, notice: 'Cep removido com sucesso.' }
       format.json { head :no_content }
     end
   end
