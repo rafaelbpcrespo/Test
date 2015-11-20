@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Product, type: :model do
+RSpec.describe Product, :type => :aruba do
 
   describe 'validations' do
     it { should validate_presence_of(:name) }
@@ -15,6 +15,13 @@ RSpec.describe Product, type: :model do
     it { should have_many(:items) }
   end
 
+
+  describe '#image' do
+    let(:product) { FactoryGirl.create :product, name: "sabonete" }
+    it 'will create an image file on the configured path' do
+      expect(product.image).to exist
+    end
+  end
 
   describe '#titleize_name' do
     let(:product) { FactoryGirl.build :product, name: "product"}
