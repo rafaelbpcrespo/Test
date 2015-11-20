@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   validates :uuid, presence: true, uniqueness: true
 
   def order_in_progress
-    self.orders.where(uuid: self.uuid).first
+    self.orders.find_by_uuid(self.uuid)
   end
 end
