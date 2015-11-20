@@ -25,27 +25,27 @@
 
     puts 'Creating Common Products'
     Supermarket.all.each do |supermarket|
-      [["arroz", 3.5], ["Feijão", 3], ["refrigerante 2l", 4.69], ["Alcatra Kg", 24.90], ["lasanha 650g", 11], ["macarrão Penne 500g", 2.70], ["Azeite Extra Virgem 500ml", 12.50], ["Desodorante Spray", 10.90], ["Shampoo", 8.59], ["Sabão", 7]].each do |product|
-        supermarket.products.create!(name: product[0], price: product[1])
+      [["arroz", 3.5,"arroz.jpg"], ["Feijão", 3, "feijao.jpg"], ["refrigerante 2l", 4.69, "Refrigerante.jpg"], ["Alcatra Kg", 24.90, "alcatra.jpg"], ["lasanha 650g", 11, "lasanha.jpg"], ["macarrão Penne 500g", 2.70, "macarrão.jpg"], ["Azeite Extra Virgem 500ml", 12.50, "azeite.jpg"], ["Desodorante Spray", 10.90, "desodorante.jpg"], ["Shampoo", 8.59, "shampoo.jpg"], ["Sabão", 7, "sabao.jpg"]].each do |product|
+        supermarket.products.create!(name: product[0], price: product[1], image: File.open("#{Rails.root}/public/images/#{product[2]}", 'rb'))
       end
     end
 
     puts 'Creating Specific Products'
-    Supermarket.find(1).products.create(name: "Sabonete", price: 0.99)
-    Supermarket.find(1).products.create(name: "Esponja", price: 3.50 )
+    Supermarket.find(1).products.create(name: "Sabonete", price: 0.99, image: File.open("#{Rails.root}/public/images/sabonete.jpg", 'rb'))
+    Supermarket.find(1).products.create(name: "Esponja", price: 3.50, image: File.open("#{Rails.root}/public/images/esponja.jpg", 'rb') )
 
-    Supermarket.find(2).products.create(name: "Picanha KG", price: 45.00)
-    Supermarket.find(2).products.create(name: "Leite 1l", price: 2.99)
+    Supermarket.find(2).products.create(name: "Picanha KG", price: 45.00, image: File.open("#{Rails.root}/public/images/picanha.jpg", 'rb'))
+    Supermarket.find(2).products.create(name: "Leite 1l", price: 2.99, image: File.open("#{Rails.root}/public/images/leite.jpg", 'rb'))
 
-    Supermarket.find(3).products.create(name: "Presunto", price: 14.55)
-    Supermarket.find(3).products.create(name: "Queijo Mussarela", price: 12.89)
+    Supermarket.find(3).products.create(name: "Presunto", price: 14.55, image: File.open("#{Rails.root}/public/images/presunto.jpg", 'rb'))
+    Supermarket.find(3).products.create(name: "Queijo Mussarela", price: 12.89, image: File.open("#{Rails.root}/public/images/mussarela.jpg", 'rb'))
 
-    Supermarket.find(4).products.create(name: "Água 1,5l", price: 2.70)
-    Supermarket.find(4).products.create(name: "Suco 1l", price: 4.79)
+    Supermarket.find(4).products.create(name: "Água 1,5l", price: 2.70, image: File.open("#{Rails.root}/public/images/agua.jpg", 'rb'))
+    Supermarket.find(4).products.create(name: "Suco 1l", price: 4.79, image: File.open("#{Rails.root}/public/images/suco.jpg", 'rb'))
 
-    Supermarket.find(5).products.create(name: "Sal Refinado", price: 3.15)
-    Supermarket.find(5).products.create(name: "Farinha", price: 2.20)
+    Supermarket.find(5).products.create(name: "Sal Refinado", price: 3.15, image: File.open("#{Rails.root}/public/images/sal.jpg", 'rb'))
+    Supermarket.find(5).products.create(name: "Farinha", price: 2.20, image: File.open("#{Rails.root}/public/images/farinha.jpg", 'rb'))
 
-    Supermarket.find(6).products.create(name: "Pão Fatiado", price: 5.70)
-    Supermarket.find(6).products.create(name: "Bolo", price: 8.79)
+    Supermarket.find(6).products.create(name: "Pão Fatiado", price: 5.70, image: File.open("#{Rails.root}/public/images/pao.jpg", 'rb'))
+    Supermarket.find(6).products.create(name: "Bolo", price: 8.79, image: File.open("#{Rails.root}/public/images/bolo.jpg", 'rb'))
 

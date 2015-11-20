@@ -1,9 +1,13 @@
 class Product < ActiveRecord::Base
+  attr_accessor :image
   belongs_to :supermarket
   has_many :items
   has_many :orders, through: :items
 
-  validates :name, :price, :supermarket_id, presence: true
+  has_attached_file :image, path: "public/attachments/:id/image/:style.:extension", url: "/attachments/:id/image/:style.:extension", styles: { medium: "150x150>", thumb: "100x100>" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+  validates :name, :price, :supermarket_id, :image, presence: true
   before_create :titleize_name
 
   def titleize_name

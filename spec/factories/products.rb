@@ -4,6 +4,7 @@ FactoryGirl.define do
     price 1.5
     description "Product Description"
     supermarket
+    image File.open("#{Rails.root}/public/images/sabonete.jpg", 'rb')
   end
 
 end

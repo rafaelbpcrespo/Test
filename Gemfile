@@ -7,6 +7,7 @@ gem 'rails',                   '4.2.4'
 # gem 'sqlite3'
 gem 'pg',                      '0.18.2'
 # Use SCSS for stylesheets
+gem 'paperclip',               '~> 4.3'
 gem 'sass-rails',              '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier',                '>= 1.3.0'
@@ -24,7 +25,7 @@ gem 'jbuilder',                '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc',                    '~> 0.4.0', group: :doc
 gem 'devise',                  '3.5.2'
-gem 'paperclip',               '~> 4.3'
+gem 'imagemagick-identify',    '~> 0.0.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
